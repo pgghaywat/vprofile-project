@@ -25,8 +25,11 @@ pipeline{
 
             }
             post{
-                echo "Now archiving"
-                archiveArtifacts artifacts: '**/*.war'
+                success{
+                    echo "Now archiving"
+                    archiveArtifacts artifacts: '**/*.war'
+                }
+                
             }
         }
         stage('Test'){
